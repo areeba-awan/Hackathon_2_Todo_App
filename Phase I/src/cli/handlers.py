@@ -131,7 +131,7 @@ def handle_view_tasks(service: TodoService) -> None:
         print_task(task, index=i)
 
     # Footer stats
-    print(f"\n{Colors.DIM}─{Colors.RESET}" * 40)
+    print(f"\n{Colors.DIM}─{Colors.RESET}" * 3)
     stats = f"{Colors.GREEN}[OK] {completed}{Colors.RESET} completed  ·  {Colors.YELLOW}[ ] {pending}{Colors.RESET} pending"
     print(f"  {stats}")
 
