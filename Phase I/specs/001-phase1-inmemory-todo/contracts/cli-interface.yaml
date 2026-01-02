@@ -1,0 +1,148 @@
+# CLI Interface Contract
+# Phase I - In-Memory Todo Console Application
+
+## Main Menu
+
+```
+=== Todo List ===
+1. Add Task
+2. View Tasks
+3. Update Task
+4. Delete Task
+5. Mark Complete
+6. Mark Incomplete
+7. Exit
+
+Enter your choice (1-7):
+```
+
+## Input/Output Contracts
+
+### 1. Add Task
+
+**Input**:
+```
+1
+[User enters description and presses Enter]
+```
+
+**Output**:
+```
+Task added successfully!
+```
+
+**Error**:
+```
+Error: Description cannot be empty.
+```
+
+### 2. View Tasks
+
+**Input**: `2`
+
+**Output** (when tasks exist):
+```
+ID | Status | Description
+1  | [ ]    | Buy groceries
+2  | [X]    | Walk the dog
+```
+
+**Output** (when empty):
+```
+No tasks exist. Add a task to get started!
+```
+
+### 3. Update Task
+
+**Input**:
+```
+3
+[User enters ID]
+[User enters new description]
+```
+
+**Output** (success):
+```
+Task updated successfully!
+```
+
+**Error - Not Found**:
+```
+Error: Task with ID 5 not found.
+```
+
+**Error - Empty Description**:
+```
+Error: Description cannot be empty.
+```
+
+### 4. Delete Task
+
+**Input**:
+```
+4
+[User enters ID]
+```
+
+**Output** (success):
+```
+Task deleted successfully!
+```
+
+**Error**:
+```
+Error: Task with ID 5 not found.
+```
+
+### 5. Mark Complete
+
+**Input**:
+```
+5
+[User enters ID]
+```
+
+**Output** (success):
+```
+Task marked as complete!
+```
+
+**Error**:
+```
+Error: Task with ID 5 not found.
+```
+
+### 6. Mark Incomplete
+
+**Input**:
+```
+6
+[User enters ID]
+```
+
+**Output** (success):
+```
+Task marked as incomplete!
+```
+
+**Error**:
+```
+Error: Task with ID 5 not found.
+```
+
+### 7. Exit
+
+**Input**: `7`
+
+**Output**:
+```
+Goodbye!
+```
+
+## Input Validation Rules
+
+| Field | Validation |
+|-------|------------|
+| Menu choice | 1-7 only, re-prompt on invalid |
+| Task ID | Integer > 0, re-prompt on invalid |
+| Description | Non-empty string, error on empty |

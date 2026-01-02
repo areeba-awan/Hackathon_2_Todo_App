@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(if not exist \"D:\\\\Quarter 4 Agentic AI\\\\Hackathon 2 Todo App\\\\Phase I\\\\history\\\\prompts\\\\constitution\" mkdir \"D:\\\\Quarter 4 Agentic AI\\\\Hackathon 2 Todo App\\\\Phase I\\\\history\\\\prompts\\\\constitution\")",
+      "Bash(git fetch:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/setup-plan.ps1\" -Json)",
+      "Bash(if not exist \"D:\\\\Quarter 4 Agentic AI\\\\Hackathon 2 Todo App\\\\Phase I\\\\history\\\\prompts\\\\plan\" mkdir \"D:\\\\Quarter 4 Agentic AI\\\\Hackathon 2 Todo App\\\\Phase I\\\\history\\\\prompts\\\\plan\")",
+      "Skill(sp.tasks)",
+      "Bash(powershell:*)",
+      "Skill(sp.implement)",
+      "Bash(python:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

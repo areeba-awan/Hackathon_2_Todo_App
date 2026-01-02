@@ -1,0 +1,89 @@
+# TodoService API Contract
+# Phase I - In-Memory Todo Console Application
+
+## Service Interface
+
+```python
+class TodoService:
+    """Console-based todo list service (in-memory)."""
+
+    def add_task(description: str) -> Task:
+        """Add a new task.
+        Args:
+            description: Non-empty string (whitespace preserved)
+        Returns:
+            Task: The created task with assigned ID
+        Raises:
+            ValueError: If description is empty or whitespace-only
+        """
+
+    def get_all_tasks() -> List[Task]:
+        """Get all tasks in insertion order.
+        Returns:
+            List[Task]: Copy of all tasks (empty list if none exist)
+        """
+
+    def get_task(task_id: int) -> Task | None:
+        """Get a single task by ID.
+        Args:
+            task_id: The unique task identifier
+        Returns:
+            Task | None: The task if found, None otherwise
+        """
+
+    def update_task(task_id: int, new_description: str) -> bool:
+        """Update a task's description.
+        Args:
+            task_id: The unique task identifier
+            new_description: Non-empty string
+        Returns:
+            bool: True if task was updated, False if not found
+        Raises:
+            ValueError: If new_description is empty or whitespace-only
+        """
+
+    def delete_task(task_id: int) -> bool:
+        """Delete a task by ID.
+        Args:
+            task_id: The unique task identifier
+        Returns:
+            bool: True if task was deleted, False if not found
+        """
+
+    def mark_complete(task_id: int) -> bool:
+        """Mark a task as complete.
+        Args:
+            task_id: The unique task identifier
+        Returns:
+            bool: True if task was marked, False if not found
+        """
+
+    def mark_incomplete(task_id: int) -> bool:
+        """Mark a task as incomplete.
+        Args:
+            task_id: The unique task identifier
+        Returns:
+            bool: True if task was marked, False if not found
+        """
+```
+
+## Task Entity Contract
+
+```python
+@dataclass
+class Task:
+    """Represents a todo task."""
+
+    id: int           # read-only, auto-assigned (1-based sequential)
+    description: str  # non-empty, 1-1000 chars
+    is_complete: bool # default: False
+```
+
+## Error Responses
+
+| Condition | Output |
+|-----------|--------|
+| Task not found | "Error: Task with ID {id} not found." |
+| Empty description | "Error: Description cannot be empty." |
+| Invalid ID format | "Error: Please enter a valid number." |
+| General error | "An unexpected error occurred. Please try again." |
